@@ -6,7 +6,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "path": "^0.12.7"
   },
   "author": "Deepak Ramalingam",
   "license": "ISC"
