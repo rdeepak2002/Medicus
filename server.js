@@ -1,5 +1,6 @@
-var express = require('express')
+const express = require('express')
 const path = require('path');
+const shell = require('shelljs');
 
 var app = express();
 
@@ -12,6 +13,19 @@ app.get('/', function(req, res) {
 })
 
 app.get('/home', function(req, res) {
+	var exec = require('child_process').exec;
+	var command = 'wolframscript Predictor.wls';
+	var child;
+
+	child = exec(command,
+   		function (error, stdout, stderr) {
+      		console.log('stdout: ' + stdout);
+      		console.log('stderr: ' + stderr);
+      	if (error !== null) {
+        	console.log('exec error: ' + error);
+      	}
+    });
+
 	res.sendFile(path.join(__dirname+'/public/pages/home.html'));
 })
 
