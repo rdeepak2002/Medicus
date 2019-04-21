@@ -7,15 +7,21 @@
 *)
 
 (* get pwd *)
-args = $ScriptCommandLine
-path = args[[2]]
+(*args = $ScriptCommandLine
+path = args[[2]]*)
 
 (* hyperparameters *)
-datasetPath = path <> "/data.csv" (* path to dataset *)
+(*datasetPath = path <> "/data.csv"*) (* path to dataset *)
 d = 2; (* target dimension to reduce original data to *)
 
 (* import dataset *)
-dataset = Import[datasetPath, "Data"]
+
+(*dataset = Import[datasetPath, "Data"]*)
+file = URLDownload["https://www.dropbox.com/s/itycps2rylp3w50/data.csv?dl=1"]
+
+dataset = Import[file, "Data"]
+
+(*dataset = Import[datasetPath, "Data"]*)
 
 (* extract features and labels *) 
 xtrain = dataset[[2 ;;, 3 ;; ]];
@@ -40,6 +46,9 @@ disease = names[[nf[xtestreduced]]];
 
 (* print output *)
 Print["" <> disease <> ""]
+
+
+
 
 
 
