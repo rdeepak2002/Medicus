@@ -22,17 +22,22 @@ app.get('/getDisease', function(req, res) {							// function to get disease and
 	var command = 'wolframscript Predictor.wls';
 	var child;
 
-	child = exec(command,
-	function (error, stdout, stderr) {
-  		console.log('output: ' + stdout);
-  		console.log('error: ' + stderr);
+	exec("pwd", (error, stdout, stderr) => {
+		console.log(stdout);
 
-  		res.send(stdout);
+		command += " " + stdout;
 
-      	if (error !== null) {
-        	console.log('exec error: ' + error);
-      	}
-    });
+		child = exec(command, function (err1, out, err) {
+	  		console.log('output: ' + out);
+	  		console.log('error: ' + err);
+
+	  		res.send(out);
+
+	      	if (err1 !== null) {
+	        	console.log('exec error: ' + err1);
+	      	}
+	    });
+	})
 })
 
 
