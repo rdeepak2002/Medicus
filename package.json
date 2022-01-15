@@ -11,7 +11,7 @@
     "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.5"
   },
   "author": "Deepak Ramalingam",
   "license": "ISC"
